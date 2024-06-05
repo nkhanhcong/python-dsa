@@ -33,3 +33,18 @@ def partitionLabels(s:str) -> list[int]:
     res_intervals.append(temp)
     res = [i[1]-i[0]+1 for i in res_intervals]
     return res 
+
+def partitionLabels2(s: str) -> list[int]:
+    dict_ends_idx = {c:i for i,c in enumerate(s)}
+
+    slow, fast = 0, 0
+    i = 0
+    ans = []
+    while(i < len(s)):
+        fast = max(fast, dict_ends_idx[s[i]])
+        if i == fast:
+            ans.append(fast - slow +1)
+            slow = fast +1
+        i+=1
+    return ans
+
