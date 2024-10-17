@@ -11,7 +11,4 @@ def maxArea(height: list[int]) -> int:
         else:
             left+=1
 
-
     return max_area
-
-
